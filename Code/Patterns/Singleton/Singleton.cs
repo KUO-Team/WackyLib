@@ -1,7 +1,7 @@
 ﻿using Sandbox;
 using System.Collections.Generic;
 
-namespace WackyLib.Utils;
+namespace WackyLib.Patterns;
 
 public abstract class Singleton<T> : Component, IHotloadManaged where T : Singleton<T>
 {
