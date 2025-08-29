@@ -4,17 +4,25 @@ namespace Sandbox;
 
 public static class TraceExtensions
 {
-	public static SceneTraceResult RunRayTrace( this SceneTrace trace, Ray ray, float distance = 100f, params string[] tags )
+	/// <summary>
+	/// Run a ray trace to the following distance.
+	/// </summary>
+	/// <returns>Result of the trace.</returns>
+	public static SceneTraceResult RunRayTrace( this SceneTrace trace, Ray ray, float distance = 100f, params string[] withTags )
 	{
 		return trace.Ray( ray, distance )
-			.WithAnyTags( tags )
+			.WithAnyTags( withTags )
 			.Run();
 	}
 
-	public static IEnumerable<SceneTraceResult> RunAllRayTrace( this SceneTrace trace, Ray ray, float distance = 100f, params string[] tags )
+	/// <summary>
+	/// Run a ray trace to the following distance.
+	/// </summary>
+	/// <returns>Results of the trace.</returns>
+	public static IEnumerable<SceneTraceResult> RunAllRayTrace( this SceneTrace trace, Ray ray, float distance = 100f, params string[] withTags )
 	{
 		return trace.Ray( ray, distance )
-			.WithAnyTags( tags )
+			.WithAnyTags( withTags )
 			.RunAll();
 	}
 }
