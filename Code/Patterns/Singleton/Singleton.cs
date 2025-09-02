@@ -26,6 +26,14 @@ public abstract class Singleton<T> : Component, IHotloadManaged where T : Single
 		}
 	}
 
+	protected override void OnDestroy()
+	{
+		if ( Instance == this )
+		{
+			Instance = null;
+		}
+	}
+	
 	void IHotloadManaged.Destroyed( Dictionary<string, object> state )
 	{
 		state["IsActive"] = Instance == this;
@@ -36,14 +44,6 @@ public abstract class Singleton<T> : Component, IHotloadManaged where T : Single
 		if ( state.GetValueOrDefault( "IsActive" ) is true )
 		{
 			Instance = (T)this;
-		}
-	}
-
-	protected override void OnDestroy()
-	{
-		if ( Instance == this )
-		{
-			Instance = null;
 		}
 	}
 }

@@ -40,7 +40,7 @@ public static class CollectionExtensions
 
 	/// <summary>
 	/// Combines the hash codes of all elements in the sequence by applying
-	/// the given selector and aggregating with <see cref="HashCode.Combine"/>.
+	/// the given selector and aggregating with <b>HashCode.Combine</b>
 	/// </summary>
 	/// <typeparam name="T">The type of elements in the sequence.</typeparam>
 	/// <typeparam name="TKey">The type returned by the selector function.</typeparam>
